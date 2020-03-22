@@ -12,17 +12,17 @@ import AssignmentIcon from '@material-ui/icons/Assignment';
 
 export const mainListItems = (
   <div>
-    <ListItem button onClick={() => window.location.href = "/"}>
+    <ListItem button onClick={() => window.location.href = "/demo"}>
       <ListItemIcon>
         <DashboardIcon />
       </ListItemIcon>
-      <ListItemText primary="Dashboard" />
+      <ListItemText primary="Demo" />
     </ListItem>
-    <ListItem button>
+    <ListItem button onClick={() => window.location.href = "/signin"}>
       <ListItemIcon>
         <ShoppingCartIcon />
       </ListItemIcon>
-      <ListItemText primary="Orders" />
+      <ListItemText primary="Sign Out" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
