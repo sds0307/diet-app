@@ -19,7 +19,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems, secondaryListItems } from './listItems';
-import Orders from './Orders';
+import FoodItems from './food-items';
 
 function Copyright() {
   return (
@@ -170,10 +170,10 @@ export default function DisplayFoodItems() {
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
           <Grid container spacing={3}>
-            {/* Recent Orders */}
+            {/* Food Items */}
             <Grid item xs={12}>
               <Paper className={classes.paper}>
-                <Orders />
+                <FoodItems />
               </Paper>
             </Grid>
           </Grid>
