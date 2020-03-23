@@ -19,7 +19,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems, secondaryListItems } from './listItems';
-import FoodItems from './food-items';
+import FoodItemsTable from './food-items-table';
 
 function Copyright() {
   return (
@@ -173,7 +173,7 @@ export default function DisplayFoodItems() {
             {/* Food Items */}
             <Grid item xs={12}>
               <Paper className={classes.paper}>
-                <FoodItems />
+                <FoodItemsTable />
               </Paper>
             </Grid>
           </Grid>
