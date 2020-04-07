@@ -3,7 +3,8 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import DashboardIcon from '@material-ui/icons/Dashboard';
-import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import BallotIcon from '@material-ui/icons/Ballot';
 
 export const mainListItems = (
   <div>
@@ -15,13 +16,13 @@ export const mainListItems = (
     </ListItem>
     <ListItem button onClick={() => window.location.href = "/demo"}>
       <ListItemIcon>
-        <DashboardIcon />
+        <BallotIcon />
       </ListItemIcon>
       <ListItemText primary="Demo" />
     </ListItem>
     <ListItem button onClick={() => window.location.href = "/signin"}>
       <ListItemIcon>
-        <ShoppingCartIcon />
+        <ExitToAppIcon />
       </ListItemIcon>
       <ListItemText primary="Sign Out" />
     </ListItem>
