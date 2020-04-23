@@ -2,7 +2,7 @@ import React from 'react';
 import Container from '@material-ui/core/Container';
 import SignIn from './components/sign-in/SignIn';
 import Dashboard from './components/dashboard/Dashboard';
-import DisplayFoodItems from './components/display-food-items/Dashboard';
+import DisplayFoodItems from './components/display-food-items/DisplayFoodItems';
 import {
   BrowserRouter as Router,
   Switch,
