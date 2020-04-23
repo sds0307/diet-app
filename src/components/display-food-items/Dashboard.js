@@ -21,19 +21,6 @@ import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems } from '../menu-items/listItems';
 import FoodItemsTable from './food-items-table';
 
-function Copyright() {
-  return (
-    <Typography variant="body2" color="textSecondary" align="center">
-      {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
-      </Link>{' '}
-      {new Date().getFullYear()}
-      {'.'}
-    </Typography>
-  );
-}
-
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -175,9 +162,6 @@ export default function DisplayFoodItems() {
               </Paper>
             </Grid>
           </Grid>
-          <Box pt={4}>
-            <Copyright />
-          </Box>
         </Container>
       </main>
     </div>
