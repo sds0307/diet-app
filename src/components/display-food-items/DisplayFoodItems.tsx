@@ -3,14 +3,12 @@ import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Drawer from '@material-ui/core/Drawer';
-import Box from '@material-ui/core/Box';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import List from '@material-ui/core/List';
 import Typography from '@material-ui/core/Typography';
 import Divider from '@material-ui/core/Divider';
 import IconButton from '@material-ui/core/IconButton';
-import Badge from '@material-ui/core/Badge';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Paper from '@material-ui/core/Paper';
@@ -18,9 +16,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import { mainListItems } from '../menu-items/listItems';
 import FoodItemsTable from './food-items-table';
-import Fab from '@material-ui/core/Fab';
-import AddIcon from '@material-ui/icons/Add';
-import EditIcon from '@material-ui/icons/Edit';
+import ManageIcons from './ManageIcons';
 
 const drawerWidth = 240;
 
@@ -153,12 +149,7 @@ export default function DisplayFoodItems() {
           <Grid container spacing={3}>
             {/* Recent Deposits */}
             <Grid item xs={12} md={4} lg={3}>
-              <Fab color="primary" aria-label="add">
-                <AddIcon />
-              </Fab>
-              <Fab color="primary" aria-label="edit">
-                <EditIcon />
-              </Fab>
+              <ManageIcons/>
             </Grid>
             {/* Food Items */}
             <Grid item xs={12}>
