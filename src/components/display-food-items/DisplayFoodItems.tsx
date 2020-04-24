@@ -15,7 +15,7 @@ import Paper from '@material-ui/core/Paper';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import { mainListItems } from '../menu-items/listItems';
-import FoodItemsTable from './food-items-table';
+import FoodItemsTable from './FoodItemsTable';
 import ManageIcons from './ManageIcons';
 
 const drawerWidth = 240;
@@ -149,7 +149,7 @@ export default function DisplayFoodItems() {
           <Grid container spacing={3}>
             {/* Recent Deposits */}
             <Grid item xs={12} md={4} lg={3}>
-              <ManageIcons/>
+              <ManageIcons isItemSelected="true"/>
             </Grid>
             {/* Food Items */}
             <Grid item xs={12}>
