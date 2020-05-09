@@ -1,13 +1,8 @@
 import React from "react";
 import MUIDataTable from "mui-datatables";
 
-type MyProps = {};
+type MyProps = {"onSelect" : any};
 type MyState = { "columns" : any[], "data" : any[], "options": any};
-
-const rowSelected = function(currentRowsSelected: any, allRowsSelected: any) {
-  console.log('currentRowsSelected: ', currentRowsSelected);
-  console.log('allRowsSelected: ', allRowsSelected);
-}
 
 const data : MyState = {
   columns: [
@@ -81,18 +76,17 @@ const data : MyState = {
       print: false,
       download: false,
       viewColumns : false,
-      onRowsSelect : rowSelected
+      onRowsSelect : null
     }
 }
 
 export default class FoodItemsTable extends React.Component<MyProps, MyState> {
     constructor(props: any) {
       super(props);
+      data.options.onRowsSelect = props.onSelect;
       this.state = data;
     }
 
-    
-  
     render() {
       return (
         <MUIDataTable
