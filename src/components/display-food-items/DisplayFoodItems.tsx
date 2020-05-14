@@ -17,6 +17,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import { mainListItems } from '../menu-items/listItems';
 import FoodItemsTable from './FoodItemsTable';
 import ManageIcons from './ManageIcons';
+import Content from './Content';
 
 const drawerWidth = 240;
 
@@ -151,18 +152,7 @@ export default function DisplayFoodItems() {
       <main className={classes.content}>
         <div className={classes.appBarSpacer} />
         <Container maxWidth="lg" className={classes.container}>
-          <Grid container spacing={3}>
-            {/* Recent Deposits */}
-            <Grid item xs={12} md={4} lg={3}>
-              <ManageIcons isItemSelected="true"/>
-            </Grid>
-            {/* Food Items */}
-            <Grid item xs={12}>
-              <Paper className={classes.paper}>
-                <FoodItemsTable onSelect={rowSelected}/>
-              </Paper>
-            </Grid>
-          </Grid>
+          <Content />
         </Container>
       </main>
     </div>
