@@ -1,6 +1,7 @@
 import React from "react";
 import Grid from '@material-ui/core/Grid';
 import FoodItemsTable from './FoodItemsTable';
+import AddFoodItem from './AddFoodItem';
 import ManageIcons from './ManageIcons';
 import Paper from '@material-ui/core/Paper';
 import './Content.css';
@@ -34,6 +35,11 @@ export default class Content extends React.Component<MyProps, MyState> {
             <Grid item xs={12}>
               <Paper className="Paper">
                 <FoodItemsTable onSelect={this.rowSelected}/>
+              </Paper>
+            </Grid>
+            <Grid item xs={12}>
+              <Paper className="Paper">
+                <AddFoodItem />
               </Paper>
             </Grid>
         </Grid>

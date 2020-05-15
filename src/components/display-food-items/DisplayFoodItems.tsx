@@ -96,11 +96,6 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const rowSelected = function(currentRowsSelected: any, allRowsSelected: any) {
-  console.log('currentRowsSelected: ', currentRowsSelected);
-  console.log('allRowsSelected: ', allRowsSelected);
-}
-
 export default function DisplayFoodItems() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(true);
