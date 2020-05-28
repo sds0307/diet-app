@@ -24,6 +24,10 @@ const useStyles = makeStyles((theme: Theme) =>
   }),
 );
 
+const onSubmit = () => {
+  window.alert('Submit success');
+};
+
 export const Heading = styled.div`
   padding-top: 15px;
   padding-bottom: 15px;
@@ -32,7 +36,7 @@ export const Heading = styled.div`
 
 export default function AddFoodItem() {
   const classes = useStyles();
-  const [measurement, setMeasurement] = React.useState('');
+  const [measurement, setMeasurement] = React.useState('1');
 
   const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
     setMeasurement(event.target.value as string);
@@ -46,7 +50,7 @@ export default function AddFoodItem() {
               </Typography>
             </Heading>
             <Heading>
-              <form className={classes.root} noValidate autoComplete="off">
+              <form className={classes.root} onSubmit={onSubmit} autoComplete="off">
                 <div>
                   <TextField
                     required
@@ -58,6 +62,7 @@ export default function AddFoodItem() {
                 <div>
                   <TextField
                     required
+                    type="number"
                     id="count"
                     label="Count"
                   />
@@ -69,41 +74,44 @@ export default function AddFoodItem() {
                       value={measurement}
                       onChange={handleChange}
                     >
-                      <MenuItem value={1}>Quantity</MenuItem>
-                      <MenuItem value={2}>Grams</MenuItem>
-                      <MenuItem value={3}>Pounds</MenuItem>
-                      <MenuItem value={4}>Litres</MenuItem>
+                      <MenuItem value={'1'}>Quantity</MenuItem>
+                      <MenuItem value={'2'}>Grams</MenuItem>
+                      <MenuItem value={'3'}>Pounds</MenuItem>
+                      <MenuItem value={'4'}>Litres</MenuItem>
                     </Select>
                   </FormControl>
                 </div>
                 <div>
                   <TextField
                     required
+                    type="number"
                     id="calories"
                     label="Calories (g)"
                   />
                   <TextField
                     required
+                    type="number"
                     id="protiens"
                     label="Protiens (g)"
                   />
                   <TextField
                     required
+                    type="number"
                     id="carbs"
                     label="Carbs (g)"
                   />
                   <TextField
                     required
+                    type="number"
                     id="fats"
                     label="Fats (g)"
                   />
                 </div>
+                <br/>
+                <Button type="submit" variant="contained" color="primary">
+                  ADD
+                </Button>
               </form>
-            </Heading>
-            <Heading>
-              <Button variant="contained" color="primary">
-                ADD
-              </Button>
             </Heading>
         </div>
       );
