@@ -2,31 +2,24 @@ import React from "react";
 import styled from "styled-components";
 import Typography from '@material-ui/core/Typography';
 import TextField from '@material-ui/core/TextField';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import Select from '@material-ui/core/Select';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import Button from '@material-ui/core/Button';
 
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      '& .MuiTextField-root': {
-        margin: theme.spacing(1),
-        width: '25ch',
-      },
-    },
-    formControl: {
-      margin: theme.spacing(1),
-      minWidth: 120,
-    },
-  }),
-);
+interface Food {
+  name?: string;
+  count?: number;
+  measurement: string;
+  calories?: number;
+  protiens?: number;
+  carbs?: number;
+  fat?: number;
+}
 
-const onSubmit = () => {
-  window.alert('Submit success');
-};
+type MyProps = {"onAdd" : any};
+type MyState = {"food" : Food};
 
 export const Heading = styled.div`
   padding-top: 15px;
@@ -34,13 +27,72 @@ export const Heading = styled.div`
   margin-left: 24px;
 `;
 
-export default function AddFoodItem() {
-  const classes = useStyles();
-  const [measurement, setMeasurement] = React.useState('1');
+//export default function AddFoodItem() {
+  export default class FoodItemsTable extends React.Component<MyProps, MyState> {
+    constructor(props: any) {
+      super(props);
+      this.state = {
+        food : {
+          name: undefined,
+          count: undefined,
+          measurement: 'qty',
+          calories: undefined,
+          protiens: undefined,
+          carbs: undefined,
+          fat: undefined
+        }
+      };
+    }
 
-  const handleChange = (event: React.ChangeEvent<{ value: unknown }>) => {
-    setMeasurement(event.target.value as string);
+  onSubmit = (e: any) => {
+    e.preventDefault();
+    console.log('food: ', this.state.food);
+    this.props.onAdd(this.state.food);
   };
+
+  handleSelectChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+    let newState = Object.assign({}, this.state);
+    newState.food.measurement = event.target.value as string;
+    this.setState(newState);
+  };
+
+  handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    let newState = Object.assign({}, this.state);
+    newState.food.name = event.target.value;
+    this.setState(newState);
+  };
+
+  handleCountChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+    let newState = Object.assign({}, this.state);
+    newState.food.count = event.target.value as number;
+    this.setState(newState);
+  };
+
+  handleCarbsChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+    let newState = Object.assign({}, this.state);
+    newState.food.carbs = event.target.value as number;
+    this.setState(newState);
+  };
+
+  handleProtiensChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+    let newState = Object.assign({}, this.state);
+    newState.food.protiens = event.target.value as number;
+    this.setState(newState);
+  };
+
+  handleCaloriesChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+    let newState = Object.assign({}, this.state);
+    newState.food.calories = event.target.value as number;
+    this.setState(newState);
+  };
+
+  handleFatsChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+    let newState = Object.assign({}, this.state);
+    newState.food.fat = event.target.value as number;
+    this.setState(newState);
+  };
+
+  render() {
 
       return (
         <div>
@@ -50,10 +102,12 @@ export default function AddFoodItem() {
               </Typography>
             </Heading>
             <Heading>
-              <form className={classes.root} onSubmit={onSubmit} autoComplete="off">
+              <form onSubmit={this.onSubmit} autoComplete="off">
                 <div>
                   <TextField
                     required
+                    value={this.state.food.name}
+                    onChange={this.handleNameChange}
                     id="name"
                     label="Name"
                     helperText="Name of the food item"
@@ -62,46 +116,56 @@ export default function AddFoodItem() {
                 <div>
                   <TextField
                     required
+                    value={this.state.food.count}
+                    onChange={this.handleCountChange}
                     type="number"
                     id="count"
                     label="Count"
                   />
-                  <FormControl className={classes.formControl}>
+                  <FormControl>
                     <InputLabel id="measurement">Measurement</InputLabel>
                     <Select
                       labelId="measurement-select-label"
                       id="measurement-select"
-                      value={measurement}
-                      onChange={handleChange}
+                      value={this.state.food.measurement}
+                      onChange={this.handleSelectChange}
                     >
-                      <MenuItem value={'1'}>Quantity</MenuItem>
-                      <MenuItem value={'2'}>Grams</MenuItem>
-                      <MenuItem value={'3'}>Pounds</MenuItem>
-                      <MenuItem value={'4'}>Litres</MenuItem>
+                      <MenuItem value={'qty'}>Quantity</MenuItem>
+                      <MenuItem value={'gms'}>Grams</MenuItem>
+                      <MenuItem value={'lbs'}>Pounds</MenuItem>
+                      <MenuItem value={'l'}>Litres</MenuItem>
                     </Select>
                   </FormControl>
                 </div>
                 <div>
                   <TextField
                     required
+                    value={this.state.food.calories}
+                    onChange={this.handleCaloriesChange}
                     type="number"
                     id="calories"
                     label="Calories (g)"
                   />
                   <TextField
                     required
+                    value={this.state.food.protiens}
+                    onChange={this.handleProtiensChange}
                     type="number"
                     id="protiens"
                     label="Protiens (g)"
                   />
                   <TextField
                     required
+                    value={this.state.food.carbs}
+                    onChange={this.handleCarbsChange}
                     type="number"
                     id="carbs"
                     label="Carbs (g)"
                   />
                   <TextField
                     required
+                    value={this.state.food.fat}
+                    onChange={this.handleFatsChange}
                     type="number"
                     id="fats"
                     label="Fats (g)"
@@ -115,4 +179,5 @@ export default function AddFoodItem() {
             </Heading>
         </div>
       );
+  }
   }

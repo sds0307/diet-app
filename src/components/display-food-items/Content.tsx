@@ -7,13 +7,21 @@ import Paper from '@material-ui/core/Paper';
 import './Content.css';
 
 type MyProps = {};
-type MyState = {"isItemSelected" : boolean};
+type MyState = {"isItemSelected" : boolean, "food" : any[]};
+
+const food: any[] = [
+  { name: 'Eggs', count: 1, measurement: 'qty', calories: 20, carbs: 2, protiens: 6,  fat: 1 },
+  { name: 'Milk', count: 100, measurement: 'gms', calories: 70, carbs: 5, protiens: 3,  fat: 0 },
+  { name: 'Chicken', count: 200, measurement: 'gms', calories: 500, carbs: 20, protiens: 30,  fat: 15 },
+  { name: 'Rice', count: 100, measurement: 'gms', calories: 200, carbs: 28, protiens: 5,  fat: 3 }
+ ];
 
 export default class Content extends React.Component<MyProps, MyState> {
     constructor(props: any) {
       super(props);
-      this.state = {isItemSelected: false};
+      this.state = {isItemSelected: false, food: food};
       this.rowSelected = this.rowSelected.bind(this);
+      this.addFoodToTable = this.addFoodToTable.bind(this);
     }
 
     rowSelected(currentRowsSelected: any, allRowsSelected: any) {
@@ -21,6 +29,21 @@ export default class Content extends React.Component<MyProps, MyState> {
       console.log('allRowsSelected: ', allRowsSelected);
       this.setState({
         isItemSelected: allRowsSelected.length ? true : false
+      });
+    }
+
+    addFoodToTable(newFood : any) {
+      const newList = this.state.food.concat(
+        { name: newFood.name, 
+          count: Number(newFood.count), 
+          measurement: newFood.measurement, 
+          calories: Number(newFood.calories), 
+          carbs: Number(newFood.carbs), 
+          protiens: Number(newFood.protiens),  
+          fat: Number(newFood.fat) 
+        });
+      this.setState({
+        food: newList
       });
     }
 
@@ -34,12 +57,12 @@ export default class Content extends React.Component<MyProps, MyState> {
             {/* Food Items */}
             <Grid item xs={12}>
               <Paper className="Paper">
-                <FoodItemsTable onSelect={this.rowSelected}/>
+                <FoodItemsTable onSelect={this.rowSelected} data={this.state.food}/>
               </Paper>
             </Grid>
             <Grid item xs={12}>
               <Paper className="Paper">
-                <AddFoodItem />
+                <AddFoodItem onAdd={this.addFoodToTable}/>
               </Paper>
             </Grid>
         </Grid>

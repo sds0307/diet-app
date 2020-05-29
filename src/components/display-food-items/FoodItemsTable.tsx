@@ -1,8 +1,8 @@
 import React from "react";
 import MUIDataTable from "mui-datatables";
 
-type MyProps = {"onSelect" : any};
-type MyState = { "columns" : any[], "data" : any[], "options": any};
+type MyProps = {"onSelect" : any, "data" : any[]};
+type MyState = { "columns" : any[], "options": any};
 
 const data : MyState = {
   columns: [
@@ -63,12 +63,6 @@ const data : MyState = {
           }
          },
      ],
-  data: [
-      { name: 'Eggs', count: 1, measurement: 'qty', calories: 20, carbs: 2, protiens: 6,  fat: 1 },
-      { name: 'Milk', count: 100, measurement: 'gms', calories: 70, carbs: 5, protiens: 3,  fat: 0 },
-      { name: 'Chicken', count: 200, measurement: 'gms', calories: 500, carbs: 20, protiens: 30,  fat: 15 },
-      { name: 'Rice', count: 100, measurement: 'gms', calories: 200, carbs: 28, protiens: 5,  fat: 3 }
-     ],
   options : {
       filterType: 'checkbox',
       selectableRows: 'single',
@@ -91,7 +85,7 @@ export default class FoodItemsTable extends React.Component<MyProps, MyState> {
       return (
         <MUIDataTable
             title={"Food Items"}
-            data={this.state.data}
+            data={this.props.data}
             columns={this.state.columns}
             options={this.state.options}
         />
