@@ -8,7 +8,7 @@ export default function ManageIcons(props : any) {
         return (
             <div>
                 <Fab color="primary" aria-label="edit">
-                    <EditIcon />
+                    <EditIcon onClick={() => props.showAddModal()} />
                 </Fab>
             </div> 
         );
@@ -16,7 +16,7 @@ export default function ManageIcons(props : any) {
         return (
             <div>
                 <Fab color="primary" aria-label="add">
-                    <AddIcon />
+                    <AddIcon onClick={() => props.showAddModal()} />
                 </Fab>
             </div> 
         );

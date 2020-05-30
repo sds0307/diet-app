@@ -7,18 +7,16 @@ import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
 import Button from '@material-ui/core/Button';
+import { Food } from './IFood';
 
-interface Food {
-  name?: string;
-  count?: number;
-  measurement: string;
-  calories?: number;
-  protiens?: number;
-  carbs?: number;
-  fat?: number;
-}
-
-type MyProps = {"onAdd" : any};
+type MyProps = {
+  "onAdd" : any, 
+  "onEdit" : any, 
+  "isEditMode" : boolean, 
+  "selectedFood": Food, 
+  "key": number,
+  "closeModal": any
+};
 type MyState = {"food" : Food};
 
 export const Heading = styled.div`
@@ -28,27 +26,30 @@ export const Heading = styled.div`
 `;
 
 //export default function AddFoodItem() {
-  export default class FoodItemsTable extends React.Component<MyProps, MyState> {
+  export default class AddFoodItem extends React.Component<MyProps, MyState> {
     constructor(props: any) {
       super(props);
       this.state = {
-        food : {
-          name: undefined,
-          count: undefined,
-          measurement: 'qty',
-          calories: undefined,
-          protiens: undefined,
-          carbs: undefined,
-          fat: undefined
-        }
+        food: {...this.props.selectedFood}
       };
     }
 
   onSubmit = (e: any) => {
     e.preventDefault();
     console.log('food: ', this.state.food);
-    this.props.onAdd(this.state.food);
+    if (this.props.isEditMode) {
+      this.props.onEdit(this.state.food);
+    } else {
+      this.props.onAdd(this.state.food);
+    }
+    
   };
+
+  updateFood = (food: Food) => {
+    this.setState({
+      food: food
+    })
+  }
 
   handleSelectChange = (event: React.ChangeEvent<{ value: unknown }>) => {
     let newState = Object.assign({}, this.state);
@@ -93,12 +94,18 @@ export const Heading = styled.div`
   };
 
   render() {
+    let text;
+    if (this.props.isEditMode) {
+      text = 'Edit';
+    } else {
+      text = 'Add';
+    }
 
       return (
         <div>
             <Heading>
               <Typography variant="h6" gutterBottom>
-                Add New Food Item
+                {text} New Food Item
               </Typography>
             </Heading>
             <Heading>
@@ -174,6 +181,10 @@ export const Heading = styled.div`
                 <br/>
                 <Button type="submit" variant="contained" color="primary">
                   ADD
+                </Button>
+                <span>&nbsp;</span>
+                <Button variant="contained" color="primary" onClick={() => this.props.closeModal()}>
+                  CANCEL
                 </Button>
               </form>
             </Heading>
