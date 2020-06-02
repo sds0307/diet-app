@@ -180,11 +180,11 @@ export const Heading = styled.div`
                 </div>
                 <br/>
                 <Button type="submit" variant="contained" color="primary">
-                  ADD
+                  {text}
                 </Button>
                 <span>&nbsp;</span>
                 <Button variant="contained" color="primary" onClick={() => this.props.closeModal()}>
-                  CANCEL
+                  Cancel
                 </Button>
               </form>
             </Heading>

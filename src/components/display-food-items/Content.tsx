@@ -115,14 +115,17 @@ export default class Content extends React.Component<MyProps, MyState> {
     closeAddModal() {
       if(this.state.showAdd==true) {
         this.setState({
-          showAdd: false
+          showAdd: false,
+          isItemSelected: false,
+          selectedFood: defaultFood
         });
       }
     }
 
     render() {
-      let add;
+      let add, table;
       if (this.state.showAdd) {
+        table = <div />
         add = <Grid item xs={12}>
                 <Paper className="Paper">
                   <AddFoodItem 
@@ -136,6 +139,12 @@ export default class Content extends React.Component<MyProps, MyState> {
                 </Paper>
               </Grid>;
       } else {
+        table = 
+        <Grid item xs={12}>
+          <Paper className="Paper">
+            <FoodItemsTable onSelect={this.rowSelected} data={this.state.food}/>
+          </Paper>
+        </Grid>
         add = <div />
       }
       return (
@@ -144,12 +153,7 @@ export default class Content extends React.Component<MyProps, MyState> {
             <Grid item xs={12} md={4} lg={3}>
               <ManageIcons isItemSelected={this.state.isItemSelected} showAddModal={this.showAddModal} />
             </Grid>
-            {/* Food Items */}
-            <Grid item xs={12}>
-              <Paper className="Paper">
-                <FoodItemsTable onSelect={this.rowSelected} data={this.state.food}/>
-              </Paper>
-            </Grid>
+            {table}
             {add}
         </Grid>
       )
