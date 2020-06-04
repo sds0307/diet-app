@@ -24,13 +24,13 @@ const food: Food[] = [
 
  const defaultFood: Food = {
     id: undefined,
-    name: undefined,
-    count: undefined,
+    name: '',
+    count: 0,
     measurement: 'qty',
-    calories: undefined,
-    protiens: undefined,
-    carbs: undefined,
-    fat: undefined
+    calories: 0,
+    protiens: 0,
+    carbs: 0,
+    fat: 0
  }
 
 export default class Content extends React.Component<MyProps, MyState> {
