@@ -6,6 +6,7 @@ import ManageIcons from './ManageIcons';
 import Paper from '@material-ui/core/Paper';
 import './Content.css';
 import { Food } from './IFood';
+import Button from '@material-ui/core/Button';
 
 type MyProps = {};
 type MyState = {
@@ -105,7 +106,7 @@ export default class Content extends React.Component<MyProps, MyState> {
     }
 
     showAddModal() {
-      if(this.state.showAdd==false) {
+      if(this.state.showAdd===false) {
         this.setState({
           showAdd: true
         });
@@ -113,7 +114,7 @@ export default class Content extends React.Component<MyProps, MyState> {
     }
 
     closeAddModal() {
-      if(this.state.showAdd==true) {
+      if(this.state.showAdd===true) {
         this.setState({
           showAdd: false,
           isItemSelected: false,
@@ -140,11 +141,17 @@ export default class Content extends React.Component<MyProps, MyState> {
               </Grid>;
       } else {
         table = 
-        <Grid item xs={12}>
-          <Paper className="Paper">
-            <FoodItemsTable onSelect={this.rowSelected} data={this.state.food}/>
-          </Paper>
-        </Grid>
+          <Grid item xs={12}>
+            <Paper className="Paper">
+              <FoodItemsTable onSelect={this.rowSelected} data={this.state.food}/>
+            </Paper>
+            <br/>
+            { this.state.isItemSelected && (
+                <Button variant="contained" color="primary" onClick={() => {}}>
+                I Ate This Today!
+                </Button>
+            )}
+          </Grid>
         add = <div />
       }
       return (
