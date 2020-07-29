@@ -1,6 +1,6 @@
 {
-  "name": "create-react-app-with-typescript",
-  "version": "4.0.0",
+  "name": "diet-app",
+  "version": "1.0.0",
   "private": true,
   "dependencies": {
     "@material-ui/core": "latest",
@@ -24,8 +24,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "test": "react-scripts test"
   },
   "browserslist": {
     "production": [
