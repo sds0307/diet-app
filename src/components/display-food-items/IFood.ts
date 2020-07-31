@@ -1,10 +1,10 @@
 export interface Food {
-    id?: number;
-    name?: string;
-    count?: number;
-    measurement: string;
     calories?: number;
-    protiens?: number;
     carbs?: number;
+    count?: number;
     fat?: number;
+    id?: number;
+    measurement: string;
+    name?: string;
+    protiens?: number;
 }

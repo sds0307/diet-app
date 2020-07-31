@@ -1,12 +1,13 @@
-import React from 'react';
-import Grid from '@material-ui/core/Grid';
-import FoodItemsTable from './FoodItemsTable';
+import './Content.css';
+
 import AddFoodItem from './AddFoodItem';
+import Button from '@material-ui/core/Button';
+import { Food } from './IFood';
+import FoodItemsTable from './FoodItemsTable';
+import Grid from '@material-ui/core/Grid';
 import ManageIcons from './ManageIcons';
 import Paper from '@material-ui/core/Paper';
-import './Content.css';
-import { Food } from './IFood';
-import Button from '@material-ui/core/Button';
+import React from 'react';
 
 type MyProps = {};
 type MyState = {

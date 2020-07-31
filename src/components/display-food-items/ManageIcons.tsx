@@ -1,7 +1,7 @@
-import React from 'react';
-import Fab from '@material-ui/core/Fab';
 import AddIcon from '@material-ui/icons/Add';
 import EditIcon from '@material-ui/icons/Edit';
+import Fab from '@material-ui/core/Fab';
+import React from 'react';
 
 export default function ManageIcons(props: any) {
     if (props.isItemSelected) {

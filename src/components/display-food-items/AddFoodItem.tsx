@@ -1,13 +1,13 @@
-import React from 'react';
-import styled from 'styled-components';
-import Typography from '@material-ui/core/Typography';
-import TextField from '@material-ui/core/TextField';
-import Select from '@material-ui/core/Select';
+import Button from '@material-ui/core/Button';
+import { Food } from './IFood';
 import FormControl from '@material-ui/core/FormControl';
 import InputLabel from '@material-ui/core/InputLabel';
 import MenuItem from '@material-ui/core/MenuItem';
-import Button from '@material-ui/core/Button';
-import { Food } from './IFood';
+import React from 'react';
+import Select from '@material-ui/core/Select';
+import TextField from '@material-ui/core/TextField';
+import Typography from '@material-ui/core/Typography';
+import styled from 'styled-components';
 
 type MyProps = {
     onAdd: any;

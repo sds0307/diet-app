@@ -1,10 +1,10 @@
-import React from 'react';
+import BallotIcon from '@material-ui/icons/Ballot';
+import DashboardIcon from '@material-ui/icons/Dashboard';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import DashboardIcon from '@material-ui/icons/Dashboard';
-import ExitToAppIcon from '@material-ui/icons/ExitToApp';
-import BallotIcon from '@material-ui/icons/Ballot';
+import React from 'react';
 
 export const mainListItems = (
     <div>

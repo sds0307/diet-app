@@ -1,5 +1,5 @@
-import React from 'react';
 import MUIDataTable from 'mui-datatables';
+import React from 'react';
 
 type MyProps = { onSelect: any; data: any[] };
 type MyState = { columns: any[]; options: any };
